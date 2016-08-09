@@ -1,0 +1,48 @@
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+#page {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10000px;
+}
+
+#container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: lightblue;
+}
+
+#sam-container {
+  left: 50%;
+  bottom: 10%;
+  position: absolute;
+}
+
+#sam{
+  position: relative;
+  left: -50%;
+  width: 200px;
+  height: 175px;
+  overflow: hidden;
+}
+
+#sam-slide {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+  width: 1800px;
+  height: 400px;
+  background-image: url('../imgs/robby-slides.png');
+}
