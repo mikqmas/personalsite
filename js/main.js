@@ -14,7 +14,8 @@ previousPageVerticalPosition = 0,
 samEyesCloseDiv = document.getElementById("eyes-closed"),
 shiftSamFrameTimer,
 counter = 0,
-canAnimate;
+canAnimate,
+testFrames = document.getElementById("test");
 // function handleMove(e) {
 //   e.preventDefault();
 //   1 == canScrollOrSwipe && (detectPageVerticalPosition(),
@@ -51,10 +52,18 @@ function detectPageVerticalPosition(){
   previousPageVerticalPosition = pageVerticalPosition;
   pageVerticalPosition = window.scrollY;
   deltaPageVerticalPosition = pageVerticalPosition - previousPageVerticalPosition;
+  console.log(deltaPageVerticalPosition);
+}
+
+function runningAnimation() {
+  // if(deltaPageVerticalPosition > 0) {
+  //   samFramesDiv.style.top = "200px";
+  // }
 }
 
 function runTheseFunctionsAfterScrollOrSwipe() {
   detectPageVerticalPosition();
+  runningAnimation();
   moveLayers();
   orientSam();
   // animateSam();
@@ -73,9 +82,9 @@ function storeDivs() {
 }
 
 function orientSam() {
-    deltaPageVerticalPosition > 0 && (samFramesDiv.style.top = "0px",
+    deltaPageVerticalPosition > 0 && (testFrames.style.top = "0px",
     samEyesCloseDiv.style.left = "90px"),
-    0 > deltaPageVerticalPosition && (samFramesDiv.style.top = "-200px",
+    0 > deltaPageVerticalPosition && (testFrames.style.top = "-200px",
     samEyesCloseDiv.style.left = "55px")
 }
 

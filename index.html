@@ -6,16 +6,33 @@
     <link rel="stylesheet" href="./css/layers.css" media="screen" title="no title" charset="utf-8">
     <!-- <link rel="stylesheet" href="./css/reset.css" media="screen" title="no title" charset="utf-8"> -->
     <title></title>
+
+    <style media="screen">
+      #container1 {
+        width: 175px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+      #test {
+        position: absolute;
+        background-image: url('./imgs/player.png');
+        width: 1400px;
+        height: 400px;
+        top: 0;
+        left: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="content">
       <div id="page">
         <div id="container">
           <div class="layer-horizontal" id="layer-horizontal-1">
-            <div id="background"></div>
+            <div class="background" id="back"></div>
           </div>
           <div class="layer-horizontal" id="layer-horizontal-1-2">
-            <div id="background"></div>
+            <div class="background" id="front"></div>
           </div>
           <div class="layer-horizontal" id="layer-horizontal-2">
             <div class="floating" id="title"></div>
@@ -58,14 +75,36 @@
             </div>
           </div>
           <div id="sam-container">
-            <div id="sam">
+            <div id="container1">
+              <div id="test"></div>
+            </div>
+            <!-- <div id="sam">
               <div id="sam-slide"></div>
               <div id="eyes-closed"></div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
     <script type="text/javascript" src="./js/main.js"></script>
+
+    <script type="text/javascript">
+      var test = document.getElementById("test");
+      var direction = test.style.top;
+      var count = 0;
+      window.setInterval(()=>{
+        direction = test.style.top;
+        console.log(direction)
+        if(direction == "-200px") {
+          if(count === 0) { count = 7 };
+          test.style.left = (count * -175) + "px"
+          count -= 1;
+        }else {
+          if(count === 8) { count = 0 };
+          test.style.left = (count * -175) + "px"
+          count += 1;
+        }
+      }, 100)
+    </script>
   </body>
 </html>

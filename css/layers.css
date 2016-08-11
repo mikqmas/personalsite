@@ -33,11 +33,9 @@
 
 #layer-horizontal-1 {
   width: 2000px;
-  background-image: url(../imgs/sf-bg-back.png);
 }
 #layer-horizontal-1-2 {
   width: 2150px;
-  background-image: url(../imgs/sf-bg-front.png);
 }
 
 #layer-horizontal-2 {
@@ -79,11 +77,21 @@
   position: absolute;
 }
 
-#background {
+.background {
   height: 100%;
   width: 2000px;
   z-index: -1;
   position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#front {
+  background-image: url(../imgs/sf-bg-front.png);
+}
+
+#back {
+  background-image: url(../imgs/sf-bg-back.png);
 }
 
 #cloud-1 {
