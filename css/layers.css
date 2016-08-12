@@ -94,6 +94,12 @@
   background-image: url(../imgs/sf-bg-back.png);
 }
 
+#bay {
+  background-image: url(../imgs/bay.png);
+  background-repeat: repeat;
+  background-position: top;
+}
+
 #cloud-1 {
     left: 1500px;
     top: 10%;

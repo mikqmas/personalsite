@@ -15,7 +15,12 @@ samEyesCloseDiv = document.getElementById("eyes-closed"),
 shiftSamFrameTimer,
 counter = 0,
 canAnimate,
-testFrames = document.getElementById("test");
+testFrames = document.getElementById("test"),
+running,
+standing,
+timeout,
+test = document.getElementById("test"),
+count = 0;
 // function handleMove(e) {
 //   e.preventDefault();
 //   1 == canScrollOrSwipe && (detectPageVerticalPosition(),
@@ -48,24 +53,58 @@ window.onscroll = function(e) {
     runTheseFunctionsAfterScrollOrSwipe();
 };
 
+function standingAni() {
+  timeout = setTimeout(function(){
+    if(count < 8 || count > 10) { count = 8;}
+    test.style.left = (count * -175) + "px";
+    count += 1;
+    standing = requestAnimationFrame(standingAni);
+  },(1000/9));
+}
+
+$(document).on("scrollstop",function(){
+  cancelAnimationFrame(running);
+  clearTimeout(timeout);
+  standingAni();
+});
+
+function runningAni() {
+  timeout = setTimeout(function(){
+    if(deltaPageVerticalPosition < 0) {
+      if(count < 0) { count = 7; }
+      test.style.left = (count * -175) + "px";
+      count -= 1;
+    }else {
+      if(count > 7) { count = 0; }
+      test.style.left = (count * -175) + "px";
+      count += 1;
+    }
+    running = requestAnimationFrame(runningAni);
+  },(1000/9));
+}
+
+$(document).on("scrollstart",function(){
+  cancelAnimationFrame(standing);
+  clearTimeout(timeout);
+  runningAni();
+});
+
 function detectPageVerticalPosition(){
   previousPageVerticalPosition = pageVerticalPosition;
   pageVerticalPosition = window.scrollY;
   deltaPageVerticalPosition = pageVerticalPosition - previousPageVerticalPosition;
-  console.log(deltaPageVerticalPosition);
 }
 
 function runningAnimation() {
-  // if(deltaPageVerticalPosition > 0) {
-  //   samFramesDiv.style.top = "200px";
-  // }
+  console.log(deltaPageVerticalPosition);
+
 }
 
 function runTheseFunctionsAfterScrollOrSwipe() {
   detectPageVerticalPosition();
-  runningAnimation();
   moveLayers();
   orientSam();
+  runningAnimation();
   // animateSam();
 }
 
@@ -82,10 +121,8 @@ function storeDivs() {
 }
 
 function orientSam() {
-    deltaPageVerticalPosition > 0 && (testFrames.style.top = "0px",
-    samEyesCloseDiv.style.left = "90px"),
-    0 > deltaPageVerticalPosition && (testFrames.style.top = "-200px",
-    samEyesCloseDiv.style.left = "55px")
+    deltaPageVerticalPosition > 0 && (testFrames.style.top = "0px"),
+    0 > deltaPageVerticalPosition && (testFrames.style.top = "-200px")
 }
 
 function animateSam() {
@@ -119,5 +156,5 @@ function shiftSamFrame() {
 }
 
 function setStaticFrame() {
-    samFramesDiv.style.left = "0px"
+    samFramesDiv.style.left = "0px";
 }
