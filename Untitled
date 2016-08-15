@@ -1,0 +1,22 @@
+def binary(n)
+  return 1 if n == 1
+  return 0 if n == 0
+  place = Math.log2(n).floor
+  left = n - (2 ** place)
+  10**(place) + binary(left)
+end
+
+def findMax(n)
+  currMax = 0
+  max = 0
+  binary(n).to_s.split("").each do |num|
+    if num == "1"
+      currMax += 1
+    else
+      currMax = 0
+    end
+    max = currMax if currMax > max
+  end
+
+  p max
+end

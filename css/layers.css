@@ -10,12 +10,17 @@
     -moz-animation-timing-function: ease;
     margin-left: 30px;
     margin-top: 5px;
-
 }
 
 @-webkit-keyframes Floatingx{
     from {-webkit-transform:translate(0, 0px);}
     65% {-webkit-transform:translate(0, 35px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-webkit-keyframes boatx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
     to {-webkit-transform: translate(0, -0px);    }
 }
 
@@ -98,6 +103,23 @@
   background-image: url(../imgs/bay.png);
   background-repeat: repeat;
   background-position: top;
+}
+
+#boat {
+  -webkit-animation-name: boatx;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  -moz-animation-name: Floating;
+  -moz-animation-duration: 4s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease;
+  position: absolute;
+  bottom: 22%;
+  left: 1200px;
+  width: 240px;
+  height: 240px;
+  background-image: url(../imgs/boat.png);
 }
 
 #cloud-1 {
