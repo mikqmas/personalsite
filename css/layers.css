@@ -51,6 +51,7 @@
 #layer-horizontal-3 {
   width: 22500px;
   z-index: 1;
+  background-color: rgba(0,0,0,.3);
 }
 
 #ground-and-grass-container {
@@ -213,6 +214,7 @@
   background-image: url(../imgs/skills-flag.gif);
   width: 400px;
   height: 400px;
+
 }
 
 #title {
@@ -223,4 +225,13 @@
   position: absolute;
   left: 250px;
   top: 15%;
+}
+
+#skills {
+  background-image: url(../imgs/logos.png);
+  position: absolute;
+  left: 4400px;
+  top: 30%;
+  height: 200px;
+  width: 2000px;
 }
