@@ -42,17 +42,17 @@ a:hover {
 #sam{
   position: relative;
   left: -50%;
-  width: 200px;
-  height: 175px;
+  width: 175px;
+  height: 200px;
   overflow: hidden;
 }
 
-#sam-slide {
+#sam-sprite {
   position: absolute;
   z-index: 2;
   left: 0px;
   top: 0px;
   width: 2100px;
   height: 400px;
-  background-image: url('../imgs/p1.gif');
+  background-image: url('../imgs/player.png');
 }
