@@ -39,7 +39,7 @@ function setLayerSpeed() {
 
 
 function setPageHeight() {
-    pageDiv.style.height = document.getElementById('layer-horizontal-3').offsetWidth - 1500 + "px"
+    pageDiv.style.height = document.getElementById('layer-horizontal-3').offsetWidth - 1000 + "px"
 }
 
 window.onload = function() {
@@ -55,11 +55,11 @@ window.onscroll = function(e) {
 
 function standingAni() {
   timeout = setTimeout(function(){
-    if(count < 8 || count > 10) { count = 8;}
+    if(count < 8 || count > 11) { count = 8;}
     test.style.left = (count * -175) + "px";
     count += 1;
     standing = requestAnimationFrame(standingAni);
-  },(1000/9));
+  },(1000/5));
 }
 
 $(document).on("scrollstop",function(){
@@ -70,15 +70,9 @@ $(document).on("scrollstop",function(){
 
 function runningAni() {
   timeout = setTimeout(function(){
-    if(deltaPageVerticalPosition < 0) {
-      if(count < 0) { count = 7; }
-      test.style.left = (count * -175) + "px";
-      count -= 1;
-    }else {
-      if(count > 7) { count = 0; }
-      test.style.left = (count * -175) + "px";
-      count += 1;
-    }
+    if(count > 7) { count = 0; }
+    test.style.left = (count * -175) + "px";
+    count += 1;
     running = requestAnimationFrame(runningAni);
   },(1000/9));
 }
