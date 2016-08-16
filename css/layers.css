@@ -21,13 +21,19 @@
 @-webkit-keyframes boatx{
     from {-webkit-transform:translate(0, 0px);}
     65% {-webkit-transform:translate(0, 15px);}
-    to {-webkit-transform: translate(0, -0px);    }
+    to {-webkit-transform: translate(0, -0px);}
 }
 
 @-moz-keyframes Floating{
     from {-moz-transform:translate(0, 0px);}
     65% {-moz-transform:translate(0, 35px);}
     to {-moz-transform: translate(0, -0px);}
+}
+
+@-moz-keyframes Floating2{
+  from {-webkit-transform:translate(0, 0px);}
+  65% {-webkit-transform:translate(0, 15px);}
+  to {-webkit-transform: translate(0, -0px);}
 }
 
 .layer-horizontal {
@@ -51,7 +57,7 @@
 #layer-horizontal-3 {
   width: 22500px;
   z-index: 1;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(50,0,30,.5);
 }
 
 #ground-and-grass-container {
@@ -74,13 +80,6 @@
   height: 100%;
   width: 100%;
   background-image: url('../imgs/ground.png');
-}
-
-.cloud {
-  width: 180px;
-  height: 120px;
-  background-image: url(../imgs/cloud.png);
-  position: absolute;
 }
 
 .background {
@@ -123,25 +122,90 @@
   background-image: url(../imgs/boat.png);
 }
 
-#cloud-1 {
-    left: 1500px;
-    top: 10%;
+/*flags*/
+
+.banner {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  z-index: 2;
+  bottom: 10%;
 }
 
-#cloud-2 {
-    left: 2900px;
-    top: 15%;
+#skills-flag {
+  left: 4500px;
+  background-image: url(../imgs/skills-flag.gif);
 }
 
-#cloud-3 {
-    left: 4900px;
-    top: 8%;
+#education-flag {
+  left: 7200px;
+  background-image: url(../imgs/education-flag.gif);
 }
 
-#cloud-4 {
-    left: 6500px;
-    top: 18%;
+#projects-flag {
+  left: 9200px;
+  background-image: url(../imgs/projects-flag.gif);
 }
+
+#contact-flag {
+  left: 12100px;
+  background-image: url(../imgs/contact-flag.gif);
+}
+
+/*Sam Kim Title*/
+#title {
+  width: 500px;
+  height: 300px;
+  background-image: url(../imgs/title.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 250px;
+  top: 15%;
+}
+
+/*About*/
+#about {
+  position: absolute;
+  top: 30%;
+  color: white;
+  left: 1100px;
+  font-size: 5em;
+  text-shadow: 2px 2px 10px black;
+}
+
+
+/*Skills*/
+#skills {
+  position: absolute;
+  top: 30%;
+  left: 5000px;
+  width: 2000px;
+  height: 200px;
+  background-image: url(../imgs/logos.png);
+}
+
+/*Education*/
+
+.edu-buildings {
+  position: absolute;
+  bottom: 10%;
+}
+
+#vandy {
+  background-image: url(../imgs/vandy.png);
+  left: 7500px;
+  height: 500px;
+  width: 800px;
+}
+
+#aa {
+  background-image: url(../imgs/aa.png);
+  left: 8400px;
+  height: 700px;
+  width: 500px;
+}
+
+/*Project Billboards*/
 
 .billboard {
   width: 500px;
@@ -171,7 +235,7 @@
 }
 
 #billboard-kelp {
-  left: 1500px;
+  left: 9700px;
   bottom: 10%;
 }
 #kelp-bill {
@@ -179,59 +243,57 @@
 }
 
 #billboard-smb {
-  left:2300px;
+  left:10500px;
   bottom: 10%;
 }
 #smb-bill {
   background-image: url(../imgs/smb.jpg);
 }
 
-#billboard-flex {
-  left:3100px;
+#billboard-chess {
+  left:11300px;
   bottom: 10%;
 }
+#chess-bill {
+  background-image: url(../imgs/chess.png);
+}
 
-.banner {
-  width: 400px;
-  height: 400px;
+/*Contacts*/
+.contacts {
   position: absolute;
-  z-index: 2;
-}
-
-#projects-flag {
-  background-size: cover;
-  left: 1200px;
-  bottom: 10%;
-  background-image: url(../imgs/projects-flag.gif);
-  width: 400px;
-  height: 400px;
-}
-
-#skills-flag {
-  background-size: cover;
-  left: 3800px;
-  bottom: 10%;
-  background-image: url(../imgs/skills-flag.gif);
-  width: 400px;
-  height: 400px;
-
-}
-
-#title {
-  width: 500px;
-  height: 300px;
-  background-image: url(../imgs/title.png);
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 250px;
-  top: 15%;
-}
-
-#skills {
-  background-image: url(../imgs/logos.png);
-  position: absolute;
-  left: 4400px;
   top: 30%;
   height: 200px;
-  width: 2000px;
+  background-image: url(../imgs/contact.png);
+  width: 200px;
+  -webkit-transition: all 1s; /* Safari */
+  transition: all 0.5s;
+}
+
+.contacts:hover {
+  transform: scale(1.1,1.1);
+  filter: hue-rotate(180);
+}
+
+#github{
+  left: 12600px;
+}
+
+#linkedin{
+  left: 12900px;
+  background-position: -200px;
+}
+
+#email{
+  left: 13200px;
+  background-position: 200px;
+}
+
+/*end*/
+#end {
+  position: absolute;
+  top: 30%;
+  left: 13800px;
+  color: white;
+  width: 800px;
+  font-size: 3em;
 }

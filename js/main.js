@@ -39,7 +39,7 @@ function setLayerSpeed() {
 
 
 function setPageHeight() {
-    pageDiv.style.height = document.getElementById('layer-horizontal-3').offsetWidth + "px"
+    pageDiv.style.height = document.getElementById('layer-horizontal-3').offsetWidth - 1500 + "px"
 }
 
 window.onload = function() {
